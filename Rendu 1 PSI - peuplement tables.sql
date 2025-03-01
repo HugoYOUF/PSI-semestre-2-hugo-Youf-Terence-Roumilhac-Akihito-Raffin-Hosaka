@@ -1,0 +1,7 @@
+-- insertion dans la table Commande
+INSERT INTO `asso`.`Commande` (`Id_Commande`, `Id_Cuisinier`, `Id_Client`, `composition`, `prix`, `quantite`, `plat`, `dateFab`, `datePer`, `regime`, `nature`, `ing1`, `vol1`, `ing2`, `vol2`, `ing3`, `vol3`, `ing4`, `vol4`) VALUES (1, 1, 1, 'Raclette', 10, 6, 'Plat', '1/10/2025', '1/15/2025', null, 'Française', 'raclette fromage', '250g', 'pomme de terre', '200g', 'jambon', '200g', 'cornichon', '3p');
+INSERT INTO `asso`.`Commande` (`Id_Commande`, `Id_Cuisinier`, `Id_Client`, `composition`, `prix`, `quantite`, `plat`, `dateFab`, `datePer`, `regime`, `nature`, `ing1`, `vol1`, `ing2`, `vol2`, `ing3`, `vol3`, `ing4`, `vol4`) VALUES (2, 1, 1, 'Salade de fruit', 5, 6, 'Dessert', '1/10/2025', '1/15/2025', 'Végétarien', 'Indifférent', 'fraise', '100g', 'kiwi', '100g', 'sucre', '10g', null, null);
+-- insertion dans la table Cuisinier
+INSERT INTO `asso`.`Cuisinier` (`Id_Cuisinier`, `nom_`, `prénom`, `rue`, `numPorte`, `codePosal`, `ville`, `telephone`, `email`,`metro`) VALUES ( 1, 'Dupond', 'Marie', 'Rue de la République', 30, 75011, 'Paris', 1234567890, 'Mdupond@gmail.com', 'République');
+-- insertion dans la table Client_particulier
+INSERT INTO `asso`.`Client_particulier` (`Id_Client`, `nom`, `prenom`, `rue`, `numPorte`, `codePosal`, `ville`, `telephone`, `email`,`metro`) VALUES ( 1, 'Durand', 'Mehdy', 'Rue Cardinet', 15, 75017, 'Paris', 1234567890, 'Mdurand@gmail.com', 'Cardinet');
