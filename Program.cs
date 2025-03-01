@@ -1,29 +1,37 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using SkiaSharp;
 using PSI_hugo_Youf_Terence_Roumilhac_Akihito_Raffin;
+using System.Diagnostics;
 
-    class Program
+// Classe représentant un nœud (membre de l'association)
+
+
+class Program
+{
+    static void Main()
     {
-        public static void Main(string[] args)
-        {
-            Graphe graphe = new Graphe();
+        string cheminFichier = "soc-karate.txt"; // Spécifiez le chemin du fichier contenant la matrice d'adjacence
+        Graphe graphe = new Graphe(34);
+        graphe.InstancierGrapheDepuisFichier(cheminFichier);
 
-            /// Création de quelques nœuds (membres)
-            Noeud n1 = graphe.AjouterNoeud(1);
-            Noeud n2 = graphe.AjouterNoeud(2);
-            Noeud n3 = graphe.AjouterNoeud(3);
-            Noeud n4 = graphe.AjouterNoeud(4);
+        Console.WriteLine("Matrice d'adjacence du graphe :");
+        graphe.AfficherMatriceAdjacence();
 
-            /// Création des liens (relations) entre les membres
-            graphe.AjouterLien(n1, n2);
-            graphe.AjouterLien(n2, n3);
-            graphe.AjouterLien(n3, n4);
-            graphe.AjouterLien(n4, n1);
-            graphe.AjouterLien(n1, n3);
+        Console.WriteLine("Parcours en largeur :");
+        graphe.ParcoursBFS(1);
 
-            /// Affichage du graphe
-            graphe.AfficherGraphe();
+        Console.WriteLine("Parcours en profondeur :");
+        graphe.ParcoursDFS(1);
 
-            Console.ReadLine();
-        }
+        Console.WriteLine("Le graphe est connexe ? " + graphe.EstConnexe());
+
+        // Génération et affichage du graphe
+        Console.WriteLine("Génération et affichage du graphe");
+        graphe.DessinerGraphe("graphe.png");
+        
+
     }
+}
