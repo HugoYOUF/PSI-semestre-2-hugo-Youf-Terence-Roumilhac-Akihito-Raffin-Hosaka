@@ -9,8 +9,7 @@ namespace LivInParisConsole
     {
         static void Main()
         {
-            // Chaîne de connexion vers la base de données LivInParis.
-            // Adaptez-la selon votre environnement (ici on suppose une instance locale avec Windows Authentication).
+          
             string connectionString = "Data Source=.;Initial Catalog=LivInParis;Integrated Security=True;";
 
             DatabaseManager dbManager = new DatabaseManager(connectionString);
@@ -302,8 +301,6 @@ namespace LivInParisConsole
             }
         }
     }
-
-    // Représentation des entités utilisées dans l'application.
     public class Client
     {
         public int Id { get; set; }
@@ -338,7 +335,6 @@ namespace LivInParisConsole
         public string Statut { get; set; }
     }
 
-    // Classe de gestion de la base de données, intégrant les appels SQL pour chaque module.
     public class DatabaseManager
     {
         private readonly string connectionString;
@@ -346,8 +342,6 @@ namespace LivInParisConsole
         {
             this.connectionString = connectionString;
         }
-
-        // --- Module Client ---
 
         public void AjouterClient(string type, string nom, string prenom, string adresse, string telephone, string email, string nomReferent)
         {
@@ -433,8 +427,6 @@ namespace LivInParisConsole
             return clients;
         }
 
-        // --- Module Cuisinier ---
-
         public void AjouterCuisinier(string nom, string prenom, string adresse, string telephone, string email)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -515,8 +507,6 @@ namespace LivInParisConsole
             return cuisiniers;
         }
 
-        // --- Module Commande ---
-
         public void CreerCommande(int clientId, int cuisinierId, decimal montant, string statut)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -580,9 +570,6 @@ namespace LivInParisConsole
             }
             return commande;
         }
-
-        // Exemple de calcul du prix d'une commande.
-        // Dans ce cas, on se contente de retourner le montant enregistré dans la commande.
         public decimal CalculerPrixCommande(int commandeId)
         {
             decimal montant = 0;
@@ -602,8 +589,6 @@ namespace LivInParisConsole
             }
             return montant;
         }
-
-        // --- Module Statistiques ---
 
         public Dictionary<int, int> StatistiquesLivraisonsParCuisinier()
         {
