@@ -1,17 +1,22 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using SkiaSharp;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace PSI_hugo_Youf_Terence_Roumilhac_Akihito_Raffin
+namespace ConsoleApp10
 {
-    internal class Noeud
+    public class Noeud<T>
     {
-        /// Id unique pour chaque nœud
-        public int Id { get; set; }
+        //Liste des attributs de la classe qui ont les mêmes nom que les colonnes des fichiers csv.
+        public int IDStation { get; set; }
+        public T LibelleStation { get; set; }
+        public double Longitude { get; set; }
+        public double Latitude { get; set; }
 
-        /// Constructeur qui initialise l'ID du nœud
-        public Noeud(int id) => Id = id;
+       
     }
+
+
+
 }

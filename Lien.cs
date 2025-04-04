@@ -1,19 +1,25 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using SkiaSharp;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace PSI_hugo_Youf_Terence_Roumilhac_Akihito_Raffin
+namespace ConsoleApp10
 {
-    internal class Lien
+    public class Lien
     {
-        public Noeud Source { get; }
-        public Noeud Destination { get; }
-        public Lien(Noeud source, Noeud destination)
+        //Liste des attributs de la classe qui ont le même nom que les colonnes des fichiers csv
+        public int StationId { get; set; }
+        public int? Suivant { get; set; }
+        public double TempsAvecStationSuivante { get; set; }
+        public string Ligne { get; set; }
+        public double TempsdeChangement { get; set; }
+
+        public Lien()
         {
-            Source = source;       /// Assigne le noeud source
-            Destination = destination;  /// Assigne le noeud destination
-        }   
+            TempsAvecStationSuivante = Convert.ToDouble(TempsAvecStationSuivante);
+            TempsdeChangement = Convert.ToDouble(TempsdeChangement);
+        }
     }
+
 }
