@@ -1,4 +1,4 @@
-Ligne;StationId;Station;Précédent;Suivant;TempsAvecStationPrecedente;TempsAvecStationSuivante;TempsdeChangement;Correspondances
+Ligne;StationId;Station;Precedent;Suivant;TempsAvecStationPrecedente;TempsAvecStationSuivante;TempsdeChangement;Correspondances
 1;1;Porte Maillot;;2;0;3;0;
 1;2;Argentine;1;3;3;2;0;
 1;3;Charles de Gaulle - Etoile;2;4;2;3;1;"2;6"
