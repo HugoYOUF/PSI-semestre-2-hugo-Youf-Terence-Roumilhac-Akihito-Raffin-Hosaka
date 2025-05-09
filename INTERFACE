@@ -391,10 +391,20 @@ namespace LivInParisConsoleApp
             Console.Write("Nature : ");
             var nat = Console.ReadLine();
 
+            // Récupérer les stations de métro du client et du cuisinier
+            var clientMetro = DataAccess.Query("SELECT metro FROM Client_particulier WHERE Id_Client = @cli", new { cli }).First().metro;
+            var cuisinierMetro = DataAccess.Query("SELECT metro FROM Cuisinier WHERE Id_Cuisinier = @cui", new { cui }).First().metro;
+
+            // Créer la commande
             DataAccess.Execute(
                 "INSERT INTO Commande (Id_Cuisinier, Id_Client, composition, prix, quantite, plat, dateFab, datePer, regime, nature) VALUES (@cui,@cli,@comp,@prix,@qty,@plat,@df,@dp,@reg,@nat)",
                 new { cui, cli, comp, prix, qty, plat, df, dp, reg, nat });
+
             Console.WriteLine("Commande créée");
+
+            // Afficher les stations de métro
+            Console.WriteLine($"Station métro du client : {clientMetro}");
+            Console.WriteLine($"Station métro du cuisinier : {cuisinierMetro}");
         }
 
         // Menu Statistiques
@@ -493,4 +503,3 @@ namespace LivInParisConsoleApp
         }
     }
 }
-
